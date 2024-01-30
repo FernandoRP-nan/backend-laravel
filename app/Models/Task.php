@@ -17,4 +17,21 @@ class Task extends Model
         'todo_id',
         'state_id',
     ];
+
+    public function todo(){
+        return $this->belongsTo(Todo::class, 'todo_id', 'id');
+    }
+
+    public function state(){
+        return $this->belongsTo(State::class, 'state_id', 'id');
+    }
+
+    public function steps(){
+        return $this->hasMany(Step::class, 'task_id', 'id');
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class)
+            ->using(TaskUser::class);
+    }
 }

@@ -21,11 +21,11 @@ class Step extends Model
         'state_id'
     ];
 
-    public function Task(): BelongsTo
+    public function task(): BelongsTo
     {
         return $this->belongsTo(Task::class);
     }
-    public function State(): BelongsTo
+    public function state(): BelongsTo
     {
         return $this->belongsTo(State::class);
     }
