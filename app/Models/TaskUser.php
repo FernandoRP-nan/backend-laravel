@@ -10,6 +10,9 @@ class TaskUser extends Pivot
 {
     use HasFactory;
 
+    //solo a la pivote se le pone true, y no a los modelos normales el $incrementing
+    public $incrementing = true;
+
     protected $fillable = [
         'due_date',
         'user_id',
@@ -18,7 +21,8 @@ class TaskUser extends Pivot
     ];
 
 
-    public function state(){
+    public function state(): BelongsTo
+    {
         return $this->belongsTo(State::class);
     }
 
